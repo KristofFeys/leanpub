@@ -11,7 +11,7 @@ def pandoc_cmd(book):
     with open(book + ".txt") as f:
         return ('echo "Starting build of {book}.pdf";'
                 "pandoc {files} " +
-                "--smart --table-of-contents --chapters -o {book}.pdf;"
+                "--smart --table-of-contents --latex-engine=xelatex --top-level-division=chapter -o {book}.pdf;"
                 'echo "  {book}.pdf created."'
                 ).format(book=book,
                          files=f.read().replace("\n", " "))
